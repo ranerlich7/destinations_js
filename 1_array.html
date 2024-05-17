@@ -35,14 +35,21 @@
         destinationsDisplay.innerHTML = destinationHTMLWithButtons() 
      // destinationsDisplay.innerHTML = myDestinations.join('<BR>') 
 
+        function deleteDestination(i) { 
+            console.log('!!!!!!')           
+            myDestinations.splice(i, 1)
+            destinationsDisplay.innerHTML = destinationHTMLWithButtons() 
+
+        }
         function destinationHTMLWithButtons(){
             let finalHTML = ''
             for (let i = 0; i < myDestinations.length; i++) {
                 const element = myDestinations[i]; 
                 // create a specific HTML code for the element - London, Barcelona, Thailand
-                let elementHTML = '<div>' + element + '<button onclick="popDestination()">Delete</button></div>'
-                // example with backtick:
-                // let elementHTML = `<div>${element}<button onclick="popDestination()">Delete</button></div>`
+                let elementHTML = `<div>${i+1} &nbsp; ${element}
+                                    <button onclick="deleteDestination(${i})">Delete</button>
+                                   </div>
+                                   `     
                 // add the element to the finalHTML
                 finalHTML = finalHTML + elementHTML
             }
