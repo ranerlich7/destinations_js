@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // JSON.stringify(myDestination) - turns the object or array into string
+        // localStorage.setItem(key, value) - saves the string(value) 
+        // localStorage.getItem(key) - returns a string
+        // JSON.parse(string) - parses the object from string 
+
+        // let myDestinations = [{
+        //     name: 'Barcelona',
+        //     score: 8.5,
+        //     description: 'Barcelona is the capital of Catalunya.',
+        //     image: 'https://media.timeout.com/images/105992807/750/422/image.webp'
+        // },
+        // {
+        //     name: 'Los Angeles',
+        //     score: 7.9,
+        //     description: 'Los Angeles is in the west coast of the USA',
+        //     image: 'https://cdn.britannica.com/22/154122-050-B1D0A7FD/Skyline-Los-Angeles-California.jpg'
+        // },
+        // {
+        //     name: 'New York',
+        //     score: 8.2,
+        //     description: 'New York is the biggest city in the USA',
+        //     image: 'https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg'
+        // }
+        // ]
+
+
+        localStorage.setItem("myDestinations", JSON.stringify(myDestinations))
+
+        let getMyDestinations = JSON.parse(localStorage.getItem("myDestinations"))
+        
+    </script>
+</body>
+
+</html>

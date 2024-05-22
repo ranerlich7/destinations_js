@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="https://media.timeout.com/images/105992807/750/422/image.webp" style="max-width:200px">
+    <br><br>
+    <div id="display"></div>
+    <script>
+        // let myDest = {
+        //     name: 'Barcelona',
+        //     score: 8.5,
+        //     myRestaurants: ['Chef', 'la bamba'],
+        //     population: 500000
+        // }
+
+        // let myDestinations = ['Barcelona', 'New York', 'Los Angeles']
+
+        let myDestinations = [{
+            name: 'Barcelona',
+            score: 8.5,
+            description: 'Barcelona is the capital of Catalunya.',
+            image: 'https://media.timeout.com/images/105992807/750/422/image.webp'
+        },
+        {
+            name: 'Los Angeles',
+            score: 7.9,
+            description: 'Los Angeles is in the west coast of the USA',
+            image: 'https://cdn.britannica.com/22/154122-050-B1D0A7FD/Skyline-Los-Angeles-California.jpg'
+        },
+        {
+            name: 'New York',
+            score: 8.2,
+            description: 'New York is the biggest city in the USA',
+            image: 'https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg'
+        }
+        ]
+        let finalHTML = ''
+        for (let i = 0; i < myDestinations.length; i++) {
+            const destination = myDestinations[i];
+            finalHTML = finalHTML + `City:${myDestinations[i].name}<br>
+                                     ${myDestinations[i].description}<br>
+                                     <img src="${myDestinations[i].image}" style="max-width:200px">
+                                     <br><hr>`
+
+        }
+        display.innerHTML = finalHTML
+    </script>
+</body>
+
+</html>
