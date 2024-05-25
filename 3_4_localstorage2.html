@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="display"></div>
+    <button onclick="changeName()">Rename</button>
+    <script>
+        // read from localstorage and turn to myDestination object
+        let myDestination = JSON.parse(localStorage.getItem('Destination'))        
+        // display on screen
+        display.innerHTML = `${myDestination.name} - ${myDestination.score}`
+        // first time run if myDestination empty - save
+        if (myDestination == null){
+            console.log('saving item for the first time')
+            let myDest = {         
+            name: 'Barcelona',
+            score: 8.5,
+            image: 'https://media.timeout.com/images/105992807/750/422/image.webp',
+            }
+            localStorage.setItem('Destination', JSON.stringify(myDest))
+        }
+
+
+        function changeName() {
+            myDestination.name = newName.value
+            localStorage.setItem('Destination', JSON.stringify(myDestination))            
+        }
+        
+
+
+
+    </script>
+</body>
+</html>
