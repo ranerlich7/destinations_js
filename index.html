@@ -24,11 +24,9 @@
     <script>
       let myDestinations = [];
       // display.innerHTML = myDestinations.join('<BR>')
-
+      const HOST = "https://json-server-222222.onrender.com/destinations";
       async function deleteDestination(destinationID) {
-        const response = await axios.delete(
-          `http://localhost:3000/destinations/${destinationID}`
-        );
+        const response = await axios.delete(`${HOST}/${destinationID}`);
         alert("delete succesfuly");
       }
       async function addDestination() {
@@ -39,17 +37,14 @@
           image: newImage.value,
         };
 
-        const response = await axios.post(
-          "http://localhost:3000/destinations",
-          newDestination
-        );
+        const response = await axios.post(HOST, newDestination);
         console.log("added successfuly");
         displayDestinations();
       }
 
       getDestinations();
       async function getDestinations() {
-        const response = await axios.get("http://localhost:3000/destinations");
+        const response = await axios.get(`${HOST}`);
         myDestinations = response.data;
         displayDestinations();
       }
