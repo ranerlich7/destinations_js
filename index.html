@@ -25,6 +25,12 @@
       let myDestinations = [];
       // display.innerHTML = myDestinations.join('<BR>')
 
+      async function deleteDestination(destinationID) {
+        const response = await axios.delete(
+          `http://localhost:3000/destinations/${destinationID}`
+        );
+        alert("delete succesfuly");
+      }
       async function addDestination() {
         let newDestination = {
           name: newName.value,
@@ -58,7 +64,7 @@
                     <div class="card-body">
                         <h5 class="card-title">${myDestinations[i].name} - ${myDestinations[i].score}</h5>
                         <p class="card-text">${myDestinations[i].description}</p>
-                        <button class="btn btn-danger" onclick="deleteDestination(${i})">Delete</button>
+                        <button class="btn btn-danger" onclick="deleteDestination('${myDestinations[i].id}')">Delete</button>
                         <button class="btn btn-primary" onclick="editDestination(${i})">Edit</button>
                     </div>
                 </div>
