@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="newDestination">
+    <button onclick="addDestination()">Add</button>
+    <button onclick="popDestination()">Pop</button>
+    <div id="destinationsDisplay">
+    </div>
+    <script>
+        let myDestinations = ['Barcelona', 'London','Thailand']
+        console.log(myDestinations)
+        
+        function popDestination() {
+            myDestinations.pop()
+            destinationsDisplay.innerHTML = destinationHTMLWithButtons()
+            if (myDestinations.length === 0){
+                destinationsDisplay.innerHTML = '<div style="color:red">No Destinations....</div>'
+            }
+        }
+
+        function addDestination() {
+            // check if exists in array. if array does not include item- add the item
+            if (!myDestinations.includes(newDestination.value)){
+                myDestinations.push(newDestination.value)
+                destinationsDisplay.innerHTML = destinationHTMLWithButtons()             
+            }
+        }
+
+        
+        destinationsDisplay.innerHTML = destinationHTMLWithButtons() 
+     // destinationsDisplay.innerHTML = myDestinations.join('<BR>') 
+
+        function deleteDestination(i) { 
+            console.log('!!!!!!')           
+            myDestinations.splice(i, 1)
+            destinationsDisplay.innerHTML = destinationHTMLWithButtons() 
+
+        }
+        function destinationHTMLWithButtons(){
+            let finalHTML = ''
+            for (let i = 0; i < myDestinations.length; i++) {
+                const element = myDestinations[i]; 
+                // create a specific HTML code for the element - London, Barcelona, Thailand
+                let elementHTML = `<div>${i+1} &nbsp; ${element}
+                                    <button onclick="deleteDestination(${i})">Delete</button>
+                                   </div>
+                                   `     
+                // add the element to the finalHTML
+                finalHTML = finalHTML + elementHTML
+            }
+            return finalHTML
+        }
+    </script>
+</body>
+</html>

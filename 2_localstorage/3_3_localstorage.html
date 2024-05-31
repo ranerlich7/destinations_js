@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>        
+
+        // save to localstorage file on the broser (KEY - VALUE)
+        // localStorage.setItem('Destination','Barcelona')
+
+        let myDest = {         
+            name: 'Barcelona',
+            score: 8.5,
+            image: 'https://media.timeout.com/images/105992807/750/422/image.webp',
+        }
+        localStorage.setItem('Destination', JSON.stringify(myDest))
+
+        // to move back from string to object JSON.parse()
+        let destination = JSON.parse(localStorage.getItem('Destination'))
+        destination.name = 'New York'
+        localStorage.setItem('Destination', JSON.stringify(destination))
+
+
+    </script>
+</body>
+</html>
