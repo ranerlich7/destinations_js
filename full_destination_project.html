@@ -26,23 +26,23 @@
         let myDestinations = JSON.parse(localStorage.getItem("myDestinations"))
         displayDestinations()
 
-        function addDestination () {
+        function addDestination() {
             myDestinations.push(newDestination.value)
             displayDestinations()
         }
-        function deleteDestination (index) {
+        function deleteDestination(index) {
             // remove destination
-            myDestinations.splice(index, 1) 
+            myDestinations.splice(index, 1)
             // save the new array to localstorage
-            localStorage.setItem("myDestinations", JSON.stringify(myDestinations)) 
+            localStorage.setItem("myDestinations", JSON.stringify(myDestinations))
             displayDestinations()
         }
 
-        function editDestination (index) {
+        function editDestination(index) {
             myDestinations[index] = newDestination.value
             displayDestinations()
         }
-        function displayDestinations () {
+        function displayDestinations() {
             let finalStr = ''
             for (let i = 0; i < myDestinations.length; i++) {
                 const destinationStr = `
@@ -57,7 +57,6 @@
                     </div>
                 </div>
                 </div>`
-                console.log('11111', myDestinations[i])
                 if (myDestinations[i].name.includes(searchText.value)) {
                     finalStr = finalStr + destinationStr
                 }
